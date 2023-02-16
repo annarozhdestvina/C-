@@ -1,10 +1,22 @@
 #include <iostream>
+#include "constants.h"
+#define MAX_STUDENTS_PER_CLASS 30
+#define MAX_NAME_LENGTH 30
+
 
 void printInteger(const int myValue) {
     std::cout << myValue << '\n';
 }
 
+void setMax(const int MAX_NAME_LENGTH) {
+    int x = MAX_NAME_LENGTH -3;
+}
+
 int main() {
+
+    int max_students = numClassrooms * MAX_STUDENTS_PER_CLASS;
+    setMax(MAX_NAME_LENGTH);
+
     int x = {4};
     x =5;
     const double gravity ={9.8};
