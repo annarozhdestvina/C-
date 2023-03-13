@@ -8,6 +8,10 @@ bool isEven(int o) {
     return true;
 }
 
+const char*  get_word(int comparison) {
+    return (comparison == true) ? "true" : "false";
+}
+
 int main() {
     int x = 7; 
     int y = 4;
@@ -38,9 +42,12 @@ int main() {
     int o;
     std::cout << "input number\n";
     std::cin >> o;
-    isEven(o);
-    bool a =isEven(o);
-    std::cout << a;
+    //isEven(o);
+    // bool a =isEven(o);
+    // std::cout << a;
+
+    int comparison = isEven(o);
+    std::cout << get_word(comparison);
 
     return 0;
 }
