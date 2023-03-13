@@ -2,10 +2,7 @@
 #include <cmath>
 
 bool isEven(int o) {
-    if (o % 2) {
-        return false;
-    }
-    return true;
+    return (o % 2) == 0;
 }
 
 const char*  get_word(int comparison) {
