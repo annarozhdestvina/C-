@@ -54,5 +54,18 @@ int main() {
         std::cout << array_user[i] << ' ';
     }
 
+    int scores[] = { 73, 85, 84, 44, 78 };
+    const int numStudents2 = sizeof(scores) / sizeof(scores[0]);
+ 
+    int maxScore2 = 0; // отслеживаем самую высокую оценку
+    int maxIndex = 0;
+    for (int student = 0; student < numStudents2; ++student)
+        if (scores[student] > maxScore2) {
+            maxScore2 = scores[student];
+            maxIndex = student;
+        }
+    std::cout << "The best score was " << maxScore2 << '\n';
+    std::cout << "max index is " << maxIndex << '\n';
+
     return 0;
 }
