@@ -1,6 +1,21 @@
 #include <iostream>
 
+int maxNumber(int* people, int length) {
+    int max = people[0];
+    for (int i = 1; i < length; i++) {
+        if(max < people[i]) {
+            max = people[i];
+        }
+    }
+    return max;
+}
+
 int main() {
+    int people[] = {73, 85, 85, 44, 78};
+    const int length = sizeof(people) / sizeof(people[0]);
+    int maxScore = 0;
+    std::cout << maxNumber(people, length) << '\n';
+
     const int numStudents = 5;
     int student0 = 73;
     int student1 = 83;
