@@ -54,7 +54,54 @@ int main() {
         std::cout << array2[i] << ' ';
     }
 
+
+    const int length4 = 4;
+    int array4[length4] = {99, 4, 3, 2};
+
+    for (int start =0; start < length4-1; start++) {
+        int smallest = start;
+        for(int current = start+1; current < length4; current++) {
+            if(array4[smallest] > array4[current]) {
+                smallest = current;
+            }
+        }
+        std::swap(array4[start], array4[smallest]);
+    }
+
+    for(int i = 0; i < length4; i++) {
+        std::cout << array4[i] << ' ';
+    }
+
+    for (int start =0; start < length4-1; start++) {
+        int biggest = start;
+        for(int current = start+1; current < length4; current++) {
+            if(array4[biggest] < array4[current]) {
+                biggest = current;
+            }
+        }
+        std::swap(array4[start], array4[biggest]);
+    }
+
+    for(int i = 0; i < length4; i++) {
+        std::cout << array4[i] << ' ';
+    }
+    std::cout << '\n';
+
+    const int length9(9);
+    int array9[length9] = { 7, 5, 6, 4, 9, 8, 2, 1, 3 };
+
+    for (int i =0; i<length9; i++) {
     
+    for (int start =0; start < length9; start++) {
+            if(array9[start] > array9[start+1]) {
+                std::swap(array9[start], array9[start+1]);
+        }
+    }
+    }
+
+    for(int i = 0; i < length9; i++) {
+        std::cout << array9[i] << ' ';
+    }
 
 
     return 0;
