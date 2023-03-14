@@ -39,5 +39,23 @@ int main() {
         printf("%d ", array[i]);
     }
 
+    const int length =5;
+    int array2[length] = {20, 10, 50, 40, 30};
+
+    for (int start= 0; start < length-1; start++) {
+        int smallest = start;
+        for(int current = start+1; current < length; current++) {
+            if(array2[current] < array2[smallest])
+            smallest = current;
+        }
+        std::swap(array2[start], array2[smallest]);
+    }
+    for(int i =0; i<length; i++){
+        std::cout << array2[i] << ' ';
+    }
+
+    
+
+
     return 0;
 }
