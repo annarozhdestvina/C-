@@ -29,7 +29,7 @@ int main() {
         std::cout << "not xor";
 
     int x;
-    std::cout << "input 0 10 255: \n";
+    std::cout << "input 0 to 255: \n";
     std::cin >> x; 
     int v = 2;
     std::cout << pow(2,3) << '\n';
