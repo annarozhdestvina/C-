@@ -24,9 +24,9 @@ int main() {
     int count = 2;
 
     if(static_cast<bool>(c) != b){
-        std::cout << "xor";
+        std::cout << "xor" << '\n';
     } else 
-        std::cout << "not xor";
+        std::cout << "not xor" << '\n';
 
     int x;
     std::cout << "input 0 to 255: \n";
