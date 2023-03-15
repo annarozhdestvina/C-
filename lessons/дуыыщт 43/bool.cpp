@@ -18,9 +18,7 @@ int pow(int base, int exp) {
 int main() {
     int a = true;
     int b = false;
-
     int c = 55;
-
     int count = 2;
 
     if(static_cast<bool>(c) != b){
@@ -39,26 +37,25 @@ int main() {
     char string[8];
     int array[8];
     std::cout << pow(base, exp) << '\n';
-    //while(x >= 0) {
+
     for (int i = 0; i < 8; i++) {
         if( x >= pow(base, exp)) {
             std::cout << "x = " << x << '\n';
             x = x-pow(base,exp);
             std::cout << "x = " << x << '\n';
             array[i] = 1;
-            
             std::cout << "array = " << array[i] << '\n';
-            //exp--;
         } else {
             array[i] = 0;
             std::cout << "array = " << array[i] << '\n';
         }
         exp--;
-        //array[i] = 1;
         }
-   // }
-    for(int i =0; i <8; i++) {
-        std::cout << array[i] << ' ';
-    }
 
+    for(int i = 0; i < 8; i++) {
+        if(i == 4)
+            std::cout << ' ';
+        std::cout << array[i];
+    }
+    return 0;
 }
