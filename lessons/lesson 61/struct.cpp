@@ -35,7 +35,27 @@ void calculate_profit(Advertising user) {
     std::cout << "all is: " << all << '\n';
 }
 
+struct delitel 
+{
+    int numerator;
+    int denominator;
+};
+
+void multiply(double num1, double num2) {
+    int res = static_cast<int>(num1) * static_cast<int>(num2);
+    std::cout << "res = " << res << '\n';
+}
+
 int main() {
+    double num1, num2;
+    std::cout << "enter two numbers: \n";
+    std::cin >> num1;
+    std::cin >> num2;
+
+    multiply(num1, num2);
+
+
+
     Advertising user1;
     std::cout << "enter announcments\n";
     std::cin >> user1.shown;
