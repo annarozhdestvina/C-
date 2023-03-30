@@ -17,10 +17,13 @@ int main()
     Fruits fruit = Fruits::LEMON; // примечание: LEMON напрямую не доступен, мы должны использовать Fruits::LEMON
     Colors color = Colors::PINK; // примечание: PINK напрямую не доступен, мы должны использовать Colors::PINK
 	
-    if (fruit == color) // ошибка компиляции, поскольку компилятор не знает, как сравнивать разные типы: Fruits и Colors
+    /*if (fruit == color) // ошибка компиляции, поскольку компилятор не знает, как сравнивать разные типы: Fruits и Colors
         std::cout << "fruit and color are equal\n";
     else
-        std::cout << "fruit and color are not equal\n";
+        std::cout << "fruit and color are not equal\n";*/
+
+    Colors color_out = Colors::GRAY;
+    std::cout << static_cast<int>(color_out);
  
     return 0;
 }
