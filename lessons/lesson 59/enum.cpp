@@ -35,7 +35,18 @@ void printColor(Colors color) {
         std::cout << "WTF\n";
 }
 
+enum Monters
+ {
+    ogre,
+    goblin,
+    skeleton,
+    orc,
+    troll
+ };
+
 int main() {
+    Monters myMonter(ogre);
+
     Colors paint(BLACK);
     std::cout << paint << '\n';
 
