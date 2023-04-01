@@ -50,7 +50,6 @@ int main() {
        std::cout << 5 << '\n'; // и это
 }
 
-
     int q = 8;
     int w = 5;
     char sign = '%'; 
