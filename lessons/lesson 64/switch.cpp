@@ -30,6 +30,49 @@ bool isdigit(char p) {
     }
 }
 
+enum class Animal
+{
+    Animal_pig,
+    chicken,
+    goat,
+    cat,
+    dog,
+    ostrich
+};
+
+std::string getAnimalName(Animal myAnimal) {
+    switch(myAnimal) {
+        case Animal::Animal_pig:
+            return "pig ";
+        case Animal::chicken:
+            return "chicken ";
+        case Animal::goat:
+            return "goat ";
+        case Animal::cat:
+            return "cat ";
+        case Animal::dog:
+            return "dog ";
+        default: return "unknown animal\n";
+    }
+}
+
+void printNumberofLegs(Animal myAnimal) {
+    std::cout << "a " << getAnimalName(myAnimal) << "has ";
+    switch(myAnimal) {
+        case Animal::Animal_pig:
+        case Animal::cat:
+        case Animal::dog:
+        case Animal::goat:
+            std::cout << "4 legs\n";
+            break;
+        case Animal::chicken: 
+            std::cout << "2 legs\n";
+            break;
+
+        default: break; 
+    }
+}
+
 int main() {
     char p = '2';
     isdigit(p);
@@ -54,5 +97,7 @@ int main() {
     int w = 5;
     char sign = '%'; 
     calculate(q, w, sign);
+    printNumberofLegs(Animal::cat);
+
     return 0;
 }
