@@ -1,5 +1,14 @@
 #include <iostream>
 
+int sumTo(int value) {
+    int result = 0;
+    while(value > 0) {
+        result += value;
+        value--;
+    }
+    return result;
+}
+
 int main() {
     int aa, bb;
     for (aa = 0, bb = 9; aa < 10; aa++, bb--) {
@@ -10,5 +19,8 @@ int main() {
         std::cout << a << ' ';
     }
     std::cout << '\n';
+
+    int value = 3;
+    std:: cout << sumTo(value);
     return 0;
 }
