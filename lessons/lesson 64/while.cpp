@@ -72,7 +72,24 @@ int main() {
             q = 5 - i;
             std::cout << '\n';
         }
+    
+    int outer1 = 5;
+    int inner1 =5;
+    while(outer1 >= 1) {
+        inner1 = 5;
+        while (inner1 > 0) 
+            std::cout << inner1-- << ' ';
+        outer1--;
+        std::cout << '\n';
+    }
 
+    int x =0;
+    std::cout << ++x<< '\n'; //1
+    x =0;
+    std::cout << x++<< '\n'; //0
+
+    for (unsigned int count = 8; count > 0; --count)
+        std::cout << count << ' ';
 
     return 0;
 }
