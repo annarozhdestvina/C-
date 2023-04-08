@@ -17,10 +17,11 @@ int main() {
     std::string myName;
     std::getline(std::cin, myName);
     int myLength = myName.length();
-    char Name[myLength];
+    char Name[myLength + 1];
     for (int i =0; i < myLength; i++) {
         Name[i] = myName[i];
     }
+    Name[myLength] = '\0';
 
     std::cout << Name << '\n';
 
