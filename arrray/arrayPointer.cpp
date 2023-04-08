@@ -24,7 +24,7 @@ int main() {
 
     std::cout << Name << '\n';
 
-    for(char* ptr = Name; ptr < Name + length; ptr++) {
+    for(const char* ptr = Name; ptr < Name + myLength; ptr++) {
         switch(*ptr) {
             case 'A':
             case 'a':
@@ -36,10 +36,15 @@ int main() {
             case 'o':
             case 'U':
             case 'u':
+            case 'Y':
+            case 'y':
                 ++numVowels;
         }
     }
     std::cout << Name << " has " << numVowels << " vowels\n";
+
+    char a = 'R';
+    std::cout << a;
 
     return 0; 
 }
