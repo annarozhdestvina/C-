@@ -13,6 +13,9 @@ int main() {
     ptr = 0;
 
     int *value = new (std::nothrow) int;
+    if(!value) {
+        std::cout << "couldn't allocate memory\n";
+    }
 
     return 0;
 }
