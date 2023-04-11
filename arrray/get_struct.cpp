@@ -51,7 +51,7 @@ int get_product(TestCase *myTestCase) {
 } 
 
 void test_case(TestCase *myTestCase, int* test_number, int* succesful_test, int is_verbose) { 
-    //std::cout << "test #" << *test_number << "\t\t";
+    std::cout << "test #" << *test_number << "\t\t";
 
      if(myTestCase->actual == myTestCase->expected) {
             std::cout << "ok\n";
