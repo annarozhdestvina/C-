@@ -44,13 +44,61 @@ void print_struct(TestCase *myTestCase) {
     }
     std::cout << '\n';
 }
+
+int get_product(TestCase *myTestCase) {
+    std::sort(myTestCase->input, myTestCase->input + myTestCase->input_length);
+    return myTestCase->input[myTestCase->input_length-1] * myTestCase->input[myTestCase->input_length-2];
+} 
+
+void test_case(TestCase *myTestCase, int* test_number, int* succesful_test, int is_verbose) { 
+    //std::cout << "test #" << *test_number << "\t\t";
+
+     if(myTestCase->actual == myTestCase->expected) {
+            std::cout << "ok\n";
+            (*succesful_test)++;
+            if(is_verbose) {
+                std::cout << "actual is\t" << myTestCase->actual << '\n';
+                std::cout << "expected is\t" << myTestCase->expected << '\n';
+                print_struct(myTestCase);
+            }
+        } else {
+            std::cout << "FAILED\n";
+            std::cout << "actual is\t" << myTestCase->actual << '\n';
+            std::cout << "expected is\t" << myTestCase->expected << '\n';
+        }
+    print_struct(myTestCase);
+}
+void get_product_test(int is_verbose) {
+    int test_number = 1;
+    int succesful_test = 0; 
+    {
+        TestCase myTestCase;
+        allocate_array(&myTestCase);
+        print_struct(&myTestCase);
+        const int actual = 81;
+        const int expected = get_product(&myTestCase);
+
+        myTestCase.actual = actual;
+        myTestCase.expected = expected;
+
+        test_case(&myTestCase, &test_number, &succesful_test, is_verbose);
+    }
+    //test_number++;
+    
+   
+    std::cout << "\nSUMMORY\n";
+    std::cout << "test " << succesful_test << '/' << test_number <<'\n';
+    std::cout << "percentage: " << 100*succesful_test/ static_cast<float>(test_number) << "%\n";
+}
+
 /*
-void get_struct(TestCase myTestCase) {
+void get_struct(TestCase* myTestCase) {
     int test_number = 1;
     int succesful_test = 0; 
     
         //int array[] = {1, 2, 3, 4, 5};
-        myTestCase.input = {1, 2, 3, 4, 5};
+        //myTestCase.input = {1, 2, 3, 4, 5};
+        allocate_array(&myTestCase);
         const int length = sizeof(array) / sizeof(array[0]);
         const int actual = 20;
         const int expected = get_product(array, length);
@@ -61,13 +109,20 @@ void get_struct(TestCase myTestCase) {
 }*/
 
 int main() {
-    int is_verbose = false;
+    //int is_verbose = false;
     //get_product_test(is_verbose);
 
     TestCase myTestCase;
     allocate_array(&myTestCase);
     print_struct(&myTestCase);
     //myTestCase.input = array;
+
+    int actual = get_product(&myTestCase);
+    std::cout << actual <<'\n';
+
+    //get_product_test();
+    int is_verbose = true;
+    get_product_test(is_verbose);
 
     return 0;
 }
