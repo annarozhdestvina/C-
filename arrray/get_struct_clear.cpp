@@ -33,8 +33,24 @@ void print_struct(TestCase *myTestCase) {
 }
 
 int get_product(TestCase *myTestCase) {
-    std::sort(myTestCase->input, myTestCase->input + myTestCase->input_length);
-    return myTestCase->input[myTestCase->input_length-1] * myTestCase->input[myTestCase->input_length-2];
+    //std::sort(myTestCase->input, myTestCase->input + myTestCase->input_length);
+    //return myTestCase->input[myTestCase->input_length-1] * myTestCase->input[myTestCase->input_length-2];
+    if(myTestCase->input_length < 2) {
+        return FAILURE;
+    }
+    int first = myTestCase->input[0] > myTestCase->input[1] ? myTestCase->input[0] : myTestCase->input[1];
+    int second = myTestCase->input[0] < myTestCase->input[1] ? myTestCase->input[0] : myTestCase->input[1];
+
+    for (int index = 0; index < myTestCase->input_length; index++) {
+        const int current = myTestCase->input[index];
+        if (current > first) {
+            second = first;
+            first = current;
+        } else if (current > second) {
+            second = current;
+        }
+    }
+    return first * second;
 } 
 
 void test_case(TestCase *myTestCase, int* test_number, int* succesful_test, int is_verbose) { 
@@ -52,6 +68,7 @@ void test_case(TestCase *myTestCase, int* test_number, int* succesful_test, int 
             std::cout << "FAILED\n";
             std::cout << "actual is\t" << myTestCase->actual << '\n';
             std::cout << "expected is\t" << myTestCase->expected << '\n';
+            print_struct(myTestCase);
         }
 }
 void get_product_test(int is_verbose) {
@@ -89,12 +106,12 @@ void get_product_test(int is_verbose) {
 
     {
         TestCase myTestCase;
-        int *array = new int[5] { 0, 7, 5, 3, 1 };
+        int *array = new int[5] { 0, 0, 5, 3, 1 };
         int length = 5;
         myTestCase.input = array;
         myTestCase.input_length = length;
 
-        const int actual = 35;
+        const int actual = 15;
         const int expected = get_product(&myTestCase);
 
         myTestCase.actual = actual;
