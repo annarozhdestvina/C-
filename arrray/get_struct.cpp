@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+//#include <malloc.h>
 
 #define SUCCESS 1
 #define FAILURE 0
@@ -17,22 +18,31 @@ enum Failuers {
     Calc_array = 2,
 } errors;
 
-void print_struct(TestCase myTestCase) {
+int allocate_array(TestCase *myTestCase) {
+    int *array = new int[7] { 9, 7, 5, 3, 1, 8, 9 };
+    //std::cout << "size array " <<sizeof(array) << '\n';
+    //std::cout << "size *array " <<sizeof(*array) << '\n';
+    //std::cout << "size array " <<sizeof(array) << '\n';
+    //std::cout << "size &array " <<sizeof(&array) << '\n';
 
-}
-
-int allocate_array(TestCase myTestCase) {
-    int *array = new int[5] { 9, 7, 5, 3, 1 };
+    //int length = sizeof(*array) / sizeof(array[0]);
+    int length = 7;
 
     if (!array) {
         printf("NOT CREATED!!!");
         return FAILURE;
     }
+    //myTestCase.input = array;
+    myTestCase->input = array;
+    myTestCase->input_length = length;
+
+    return SUCCESS;
 }
-void print_array(const int* array, int length) {
-    for (int i = 0; i < length; ++i)
-        printf("%d ", array[i]);
-    printf("\n");
+void print_struct(TestCase *myTestCase) {
+    for(int index = 0; index < myTestCase->input_length; index++) {
+        std::cout << myTestCase->input[index] << ' ';
+    }
+    std::cout << '\n';
 }
 /*
 void get_struct(TestCase myTestCase) {
@@ -55,13 +65,9 @@ int main() {
     //get_product_test(is_verbose);
 
     TestCase myTestCase;
-    int *array = new int[5] { 9, 7, 5, 3, 1 };
-
-    if (!array) {
-        printf("NOT CREATED!!!");
-        return FAILURE;
-    }
-    myTestCase.input = array;
+    allocate_array(&myTestCase);
+    print_struct(&myTestCase);
+    //myTestCase.input = array;
 
     return 0;
 }
