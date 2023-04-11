@@ -18,6 +18,10 @@ struct Other {
     int otherValue;
 };
 
+void printIt(const int &a) {
+    std::cout << a;
+}
+
 int main() {
     Other other;
 // работаем с полем value1 структуры Something 
@@ -42,6 +46,16 @@ int main() {
     std::cout << "before change a: " << a <<'\n';
     change_by_Pointer(&a);
     std::cout << "after change a: " << a <<'\n';
+
+    int q =3;
+    printIt(q);
+
+    const int w = 4;
+    printIt(w); // константное l-value
+
+    printIt(5); // литерал в качестве r-value
+ 
+    printIt(3+q); // выражение в качестве r-value
 
     return 0;
 }
