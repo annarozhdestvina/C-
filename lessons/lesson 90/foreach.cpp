@@ -20,5 +20,26 @@ int main()
     std::vector<int> math2 = {0, 1, 4, 5, 7, 20};
     for (const auto &number : math)
         std::cout << number << ' ';
+    std::cout << '\n';
+
+    std::string enter;
+    int i =0;
+    int j=0;
+    const std::string names[] = {"Sasha", "Ivan", "John", "Orlando", "Leonardo", "Nina", "Anton", "Molly"};
+    std::cout << "enter a name: \n";
+    std::getline(std::cin, enter);
+    for (auto picked: names) 
+        if(enter == picked) {
+            i++;
+        } else {
+            j++;
+        }
+
+    if (i) {
+        std::cout << enter << " was found\n";
+        } else {
+        std::cout << enter << " was not found\n"; 
+    }
+        //std::cout << picked << ' ';
     return 0;
 }
