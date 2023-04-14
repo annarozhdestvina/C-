@@ -16,7 +16,17 @@ int countTotalIteams (int *numbers) {
     return res;
 }
 
+void change(int &a, int &b) {
+    int z = b;
+    b = a;
+    a = z; 
+}
+
 int main() {
+    int a = 9;
+    int b = 8;
+    change(a, b);
+    std::cout << "a " << a << " b " << b <<'\n';
     int number[max_things]{3, 6, 12};
     std::cout << "items " << countTotalIteams(number);
 
