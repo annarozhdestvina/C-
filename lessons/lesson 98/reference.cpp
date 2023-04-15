@@ -12,7 +12,27 @@ void fucc(int &x) {
     x = x+2;
 }
 
+void boo(int *ptr) {
+    *ptr = 7;
+}
+
+void printArray(int* array, int length) {
+    if(!array)
+        return;
+    for(int index = 0; index < length; index++) {
+        std::cout << array[index] << ' ';
+    }
+}
+
 int main() {
+    int array[7] = { 8, 5, 4, 8, 4, 3, 7};
+    printArray(array, 7);
+
+    int value = 8;
+    std::cout << "value = " << value << '\n';
+    boo(&value);
+    std::cout << "value = " << value << '\n';
+
     int x =7;
     std::cout << x << '\n';
     fucc(x);
