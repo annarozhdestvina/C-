@@ -39,6 +39,14 @@ int fibonacci(int number)
         return 1; // базовый случай (условие завершения)
     return fibonacci(number-1) + fibonacci(number-2);
 }
+int sumNumber(int n) {
+    int res =0;
+    int del = 1000;
+    if (n < 10)
+        return n;
+    else 
+        return sumNumber(n / 10) + n %10;;
+}
 
 int main() {
     countOUT(4);
@@ -48,6 +56,9 @@ int main() {
 
     for (int count=0; count < 13; ++count)
         std:: cout << fibonacci(count) << " ";
+    std::cout <<'\n';
  
-    
+    std::cout << sumNumber(83569) << std::endl;
+
+    return 0;
 }
