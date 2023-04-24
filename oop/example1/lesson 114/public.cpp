@@ -75,6 +75,14 @@ public:
         _array[_length] = number;
         _length++;
     }
+
+    void pop() {
+        _length--;
+        _array[_length] = 0;
+        //std::cout << _array[_length] << '\n';
+        // std::cout << _length <<'\n';
+       // _length--;
+    }
 };
 
 int main() {
@@ -120,13 +128,13 @@ int main() {
 	 stack.push(5);
 	 stack.print();
  
-	// stack.pop();
+	 stack.pop();
 	 stack.print();
  
-	// stack.pop();
-	// stack.pop();
+	 stack.pop();
+	 stack.pop();
  
-	// stack.print();
+	 stack.print();
  
 
 
