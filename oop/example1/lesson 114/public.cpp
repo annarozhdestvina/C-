@@ -46,6 +46,37 @@ public:
     }
 };
 
+class Stack {
+    int _array[100];
+    int _length;
+public:
+
+    Stack() {
+        std::cout << "default constructor!\n";
+        reset();
+    }
+
+    void reset() {
+        for(int i = 0; i < 10; i++) 
+            _array[i] = 0;
+        _length = 0;
+    }
+
+    void print() {
+        std::cout << "( ";
+        for (int i = 0; i < 10; i++) {
+            if(_array[i] != 0)
+                std::cout << _array[i] << ' ';
+        }
+        std::cout << ")\n"; 
+    }
+
+    void push(int number) {
+        _array[_length] = number;
+        _length++;
+    }
+};
+
 int main() {
     DataClass date;
 
@@ -79,7 +110,24 @@ int main() {
     else
         std::cout << "point1 and point3 are not equal\n";
  
-
+    Stack stack;
+	stack.reset();
+ 
+	stack.print();
+ 
+	 stack.push(3);
+	 stack.push(7);
+	 stack.push(5);
+	 stack.print();
+ 
+	// stack.pop();
+	 stack.print();
+ 
+	// stack.pop();
+	// stack.pop();
+ 
+	// stack.print();
+ 
 
 
     return 0;
