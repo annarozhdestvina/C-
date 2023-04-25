@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cassert>
 
 class DataClass {
     int m_day;
@@ -79,8 +80,10 @@ public:
     void pop() {
         _length--;
         _array[_length] = 0;
-        //std::cout << _array[_length] << '\n';
-        // std::cout << _length <<'\n';
+        assert(_length != 0 && "there is nothing in stack now");
+
+        //std::cout << "_array[_length]= "<< _array[_length] << '\n';
+        // std::cout << "_length" << _length <<'\n';
        // _length--;
     }
 };
@@ -132,11 +135,10 @@ int main() {
 	 stack.print();
  
 	 stack.pop();
+	 stack.print();
 	 stack.pop();
  
 	 stack.print();
- 
-
 
     return 0;
 }
