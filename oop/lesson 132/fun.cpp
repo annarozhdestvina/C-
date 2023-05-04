@@ -22,7 +22,6 @@ int main() {
     Dollar d1(43);
     Dollar d2(2);
     Dollar sum = d1 + d2;
-
     std::cout << "sum is " << sum.getDollar() << " dollars\n";
 
     return 0;
