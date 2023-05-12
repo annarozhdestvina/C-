@@ -16,7 +16,8 @@ public:
 };
 
 bool operator> (const Dollars &d1, const Dollars &d2) {
-    return d1.m_dollars > d2.m_dollars;
+    //return d1.m_dollars > d2.m_dollars;
+    return !(d1 <= d2);
 }
 
 bool operator>= (const Dollars &d1, const Dollars &d2)
@@ -26,7 +27,8 @@ bool operator>= (const Dollars &d1, const Dollars &d2)
  
 bool operator< (const Dollars &d1, const Dollars &d2)
 {
-    return d1.m_dollars < d2.m_dollars;
+    //return d1.m_dollars < d2.m_dollars;
+    return !(d1 >= d2);
 }
  
 bool operator<= (const Dollars &d1, const Dollars &d2)
