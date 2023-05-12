@@ -12,6 +12,10 @@ public:
         return (-m_a, -m_b, -m_c);
     }
 
+    Something operator+() const {
+        return *this;
+    }
+
     bool operator!() const {
         return (m_a == 0.0 && m_b == 0.0 && m_c == 0.0);
     }
@@ -37,5 +41,6 @@ int main() {
     else 
         std::cout << "Something is not null\n";
 
+    std::cout << -something.getA() << '\n';
     return 0;
 }
