@@ -15,11 +15,33 @@ public:
     void setDollars(int dollars) { m_dollars = dollars; }
 };
 
+class Cents
+{
+private:
+    int m_cents;
+public:
+    Cents(int cents=0)
+    {
+        m_cents = cents;
+    }
+ 
+     // Выполняем конвертацию Cents в Dollars
+     operator Dollars() { return Dollars(m_cents / 100); }
+};
+
 void printInt(int value) {
     std::cout << value;
+}
+
+void printDollars(Dollars dollars)
+{
+    std::cout << dollars; // dollars неявно конвертируется в int здесь
 }
 
 int main() {
     Dollars dollars(9);
     printInt(dollars);
+
+    Cents cents(700);
+    printDollars(cents);
 }
