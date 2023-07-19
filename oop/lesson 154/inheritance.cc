@@ -29,10 +29,32 @@ public:
     }
 };
 
+class Employee: public Human
+{
+public:
+    int m_wage;
+    long m_employeeID;
+ 
+    Employee(int wage = 0, long employeeID = 0)
+        : m_wage(wage), m_employeeID(employeeID)
+    {
+    }
+ 
+    void printNameAndWage() const
+    {
+        std::cout << m_name << ": " << m_wage << '\n';
+    }
+};
+
 int main() {
     BasketballPlayer anton;
     anton.m_name = "Anton";
     std::cout << anton.getName();
+
+    Employee ivan(350, 55);
+    ivan.m_name = "Ivan";
+
+    ivan.printNameAndWage();
 
     return 0;
 }
