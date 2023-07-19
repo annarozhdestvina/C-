@@ -1,5 +1,6 @@
 #include <iostream>
-#include <cassert> // для assert()
+#include <cassert>
+#include <initializer_list>
  
 class ArrayInt
 {
@@ -9,20 +10,29 @@ private:
  
 public:
     ArrayInt():
-        m_length(0), m_data(nullptr)
-    {
-    }
+        m_length(0), m_data(nullptr) {}
  
-    ArrayInt(int length):
-        m_length(length)
-    {
+    ArrayInt(int length): m_length(length) {
         m_data = new int[length];
     }
+
+    ArrayInt(const std::initializer_list<int> &list) : ArrayInt(list.size()) {
+        int count = 0;
+        for(auto &element : list){
+            m_data[count] = element;
+            ++count;
+        }
+    }
  
-    ~ArrayInt()
-    {
+    ~ArrayInt() {
         delete[] m_data;
         // Нам не нужно здесь присваивать значение null для m_data или выполнять m_length = 0, так как объект будет уничтожен сразу же после выполнения этой функции
+    }
+
+    void Print() {
+    for (int count=0; count < m_length; ++count)
+		std::cout << m_data[count] << ' ';
+    std::cout << '\n';
     }
  
     int& operator[](int index)
@@ -36,17 +46,8 @@ public:
 
 int main()
 {
-	ArrayInt array(7);
-	array[0] = 7;
-	array[1] = 6;
-	array[2] = 5;
-	array[3] = 4;
-	array[4] = 3;
-	array[5] = 2;
-	array[6] = 1;
- 
-	for (int count=0; count < 7; ++count)
-		std::cout << array[count] << ' ';
- 
+	ArrayInt array {7, 4, 3, 5, 4, 3};
+    array.Print();
+	
 	return 0;
 }
