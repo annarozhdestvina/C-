@@ -1,17 +1,12 @@
 #include <iostream>
 
-class Apple {
+class Fruit {
 private:
     std::string myname;
     std::string mycolor;
 
 public:
-    Apple(std::string name = "apple", std::string color = "red") :
-    myname(name), mycolor(color) {}
-
-    
-
-    Apple() {}
+    Fruit(std::string name, std::string color) : myname(name), mycolor(color) {}
 
     std::string getName() const {
         return myname;
@@ -20,13 +15,19 @@ public:
     std::string getColor() const {
         return mycolor;
     }
+};
+
+class Apple : public Fruit {
+
+public:
+    Apple(std::string name = "apple", std::string color = "red") :
+    Fruit(name, color) {}
 
 };
 
-class Banana : public Apple {
+class Banana : public Fruit {
 public:
-    Banana(std::string name = "banana", std::string color = "yellow") : Apple(name, color) {}
-
+    Banana(std::string name = "banana", std::string color = "yellow") : Fruit(name, color) {}
 
 };
 
