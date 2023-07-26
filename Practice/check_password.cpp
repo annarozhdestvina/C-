@@ -14,17 +14,15 @@ bool IsGood(const std::string &myString) {
     for(char c : myString) {
         if(c < 33 || c > 126)
             return false;
-        if (c > 64 && c < 91) {
+        if ('A' <= c && c <= 'Z') {
             upper = 1;
-        }
-        if (c > 96 && c < 123) {
+        } else if ('a' <= c && c <= 'z') {
             lower = 1;
-        }
-
-        if (c > 47 && c < 58) {
+        } else if ('0' <= c && c <= '9') {
             digit = 1;
-        } else 
+        } else {
             other = 1;
+        }
     }
     return (upper + lower + digit + other) >= 3;
 }
