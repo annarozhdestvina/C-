@@ -32,8 +32,8 @@ int main() {
     Parent *p = getObject(true);
     Child *ch = dynamic_cast<Child*>(p); // используем dynamic_cast для конвертации указателя класса Parent 
     //в указатель класса Child
-    
-    std::cout << "The name of the Child is: " << ch->getName() << '\n';
+    if(ch) // проверка на динамический указатель
+        std::cout << "The name of the Child is: " << ch->getName() << '\n';
  
 	delete p;
     return 0;
