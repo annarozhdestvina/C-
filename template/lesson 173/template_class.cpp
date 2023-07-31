@@ -14,6 +14,10 @@ public:
     friend bool operator>(const Dollar &d1, const Dollar &d2) {
         return (d1.m_dollar > d2.m_dollar);
     }
+
+    void Print() {
+        std::cout << "dollar = " << m_dollar;
+    }
 };
 
 int main() {
@@ -22,9 +26,13 @@ int main() {
     Dollar d2 = 6667;
 
     if(d1 > d2)
-        std::cout << "bigger";
+        std::cout << "bigger\n";
     else
-        std::cout << "smaller";
+        std::cout << "smaller\n";
+
+    Dollar bigger = max(d1, d2);
+    bigger.Print();
+
 
 
     return 0;
