@@ -1,4 +1,5 @@
 #include <iostream>
+
 template <class T>
 class Repository {
 private:
@@ -15,6 +16,12 @@ public:
         std::cout << m_value << '\n';
     }
 };
+
+template <>
+void Repository<double>::print()
+{
+    std::cout << std::scientific << m_value << '\n';
+}
 
 int main() {
     // Инициализируем объекты класса
