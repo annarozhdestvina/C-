@@ -2,10 +2,10 @@
 #include <cstring>
 #include <string.h>
 
-template <class T, int size>
+template <class T, int size> // size является non-type параметром шаблона
 class StaticArray {
 private:
-    T m_array[size];
+    T m_array[size]; // Параметр size отвечает за длину массива
 
 public:
     T* getArray() {
@@ -25,6 +25,14 @@ void print(StaticArray<T, size> &array) {
     std::cout << '\n';
 }
 
+// Шаблон функции print() с полной специализацией шаблона класса StaticArray
+template <>
+void print(StaticArray<char, 14> &array) {
+    for (int i = 0; i < 14; i++) 
+        std::cout << array[i];
+    std::cout << '\n';
+}
+
 
 int main() {
     StaticArray<int, 5> int5;
@@ -40,7 +48,7 @@ int main() {
     char text[] = "Print this!";
     char dest[50];
     stpcpy(dest, text);
-    std::cout << dest;
+    std::cout << dest << '\n';
 
 
     StaticArray<char, 14> char14;
