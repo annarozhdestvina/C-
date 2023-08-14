@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cstring>
+#include <string.h>
 
 template <class T, int size>
 class StaticArray {
@@ -21,7 +22,7 @@ template <typename T, int size>
 void print(StaticArray<T, size> &array) {
     for (int i = 0; i < size; i++) 
         std::cout << array[i] << ' ';
-    // std::cout << '\n';
+    std::cout << '\n';
 }
 
 
@@ -34,6 +35,17 @@ int main() {
     int5[4] = 90;
 
     print(int5);
+
+
+    char text[] = "Print this!";
+    char dest[50];
+    stpcpy(dest, text);
+    std::cout << dest;
+
+
+    StaticArray<char, 14> char14;
+    strncpy(char14.getArray(), "Hello, World!", 14);
+    print(char14);
 
     return 0;
 }
