@@ -1,18 +1,32 @@
 #include <iostream>
 
 // указатели
+int a = 2;
 
-int main() {
-    int a = 5;
-    int b = a;
-    int *px = &a;
+int& f(int x) {
+    a = a + x;
+    return a;
+}
 
-    std::cout << b <<'\n';
-    std::cout << *px <<'\n';
+int main(void) {
+    int t = 2;
+    std::cout << f(t) << '\n';  // 4
+    //а в лок области видимости и придет ссылка и выведется 4
 
-    a += 6;
-    std::cout << b <<'\n';
-    std::cout << *px <<'\n';
+    f(t) = 10; // в ссылку записываем 10 в а
+    std::cout << f(t) << '\n'; // 12
+
+    t = f(t);  // 12   f(2)-> 14
+    std::cout << f(t) << '\n'; //  t = 14 a = 14
+    // int b = a;
+    // int *px = &a;
+
+    // std::cout << b <<'\n';
+    // std::cout << *px <<'\n';
+
+    // a += 6;
+    // std::cout << b <<'\n';
+    // std::cout << *px <<'\n';
 
 
 }
