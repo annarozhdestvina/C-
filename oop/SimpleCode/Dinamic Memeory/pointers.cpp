@@ -18,6 +18,15 @@ int main(void) {
 
     t = f(t);  // 12   f(2)-> 14
     std::cout << f(t) << '\n'; //  t = 14 a = 14
+
+    const int M = 100;
+    const double X = 20;
+    const double dx = X/M;
+    for(double x = X; x > 0; x -= dx) {
+        // std::cout<< x << ", ";
+        if( x < 2.0 + dx/2 && x > 2 - dx/2)
+            std::cout << "find x = " << x << '\n';
+    }
     // int b = a;
     // int *px = &a;
 
