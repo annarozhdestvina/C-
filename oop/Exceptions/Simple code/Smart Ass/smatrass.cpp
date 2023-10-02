@@ -31,4 +31,7 @@ int main() {
     // delete ptr;  // иначе память закончится
 
     SmartPointer<int> pointer = new int(5);
+    std::cout << *pointer << '\n';
+
+    return 0;
 }
