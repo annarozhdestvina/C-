@@ -10,11 +10,13 @@ public:
         delete m_ptr;
     }
 
+    // Конструктор копирования
     Auto_ptr3(const Auto_ptr3 &x) {
         m_ptr = new T;
         *m_ptr = *x.m_ptr;
     }
 
+    // Оператор присваивания копированием
     Auto_ptr3& operator=(const Auto_ptr3 &x) {
         if(&x == this)
             return *this;
