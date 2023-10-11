@@ -47,7 +47,7 @@ void List<T>::print() {
 
 template <typename T>
 T &List<T>::operator[](const int index) {
-    assert(index <= Size && index > 0);
+    assert(index <= Size && index >= 0);
 
     int count = 0;
     Node *current = this->head;
@@ -87,6 +87,7 @@ int main() {
     std::cout << lst.GetSize() << '\n';
 
     std::cout << lst[2] <<'\n';
+    std::cout << lst[0] <<'\n';
 
     return 0;
 }
