@@ -1,5 +1,6 @@
 // list 
 #include <iostream>
+#include <cassert>
 
 template<typename T>
 class List {
@@ -8,6 +9,11 @@ public:
     ~List();
     void push_back(T data);
     void print();
+    int GetSize() {
+        return Size;
+    }
+
+    T& operator[](const int index);
 
 private:
     class Node {
@@ -39,6 +45,23 @@ void List<T>::print() {
     std::cout << "list\n";
 }
 
+template <typename T>
+T &List<T>::operator[](const int index) {
+    assert(index <= Size && index > 0);
+
+    int count = 0;
+    Node *current = this->head;
+
+    while(current != nullptr) {
+        if (count == index)
+            return current->data;
+
+        current = current->pNext;
+        count++;
+    }
+
+}
+
 template<typename T>
 void List<T>::push_back(T data) {
     if(head == nullptr)
@@ -52,7 +75,7 @@ void List<T>::push_back(T data) {
         current->pNext = new Node(data);
     }
 
-
+    Size++;
 }
 
 int main() {
@@ -60,6 +83,10 @@ int main() {
     lst.push_back(5); 
     lst.push_back(10); 
     lst.push_back(22);
+
+    std::cout << lst.GetSize() << '\n';
+
+    std::cout << lst[2] <<'\n';
 
     return 0;
 }
