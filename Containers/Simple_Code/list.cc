@@ -9,6 +9,7 @@ public:
     ~List();
     void push_back(T data);
     void pop_front();
+    void clear();
     void print();
     int GetSize() {
         return Size;
@@ -88,6 +89,14 @@ void List<T>::pop_front() {
     Size--;
 }
 
+template <typename T>
+void List<T>::clear() {
+    // while(head != nullptr)
+    while(Size) 
+        pop_front();
+    
+}
+
 int main() {
     List<int> lst;
     lst.push_back(5); 
@@ -106,6 +115,11 @@ int main() {
     lst.pop_front();
     for(int i = 0; i < lst.GetSize(); i++)
         std::cout << "list: " << lst[i] << ' ';
+    std::cout << '\n';
+
+    lst.clear();
+
+    
 
     return 0;
 }
