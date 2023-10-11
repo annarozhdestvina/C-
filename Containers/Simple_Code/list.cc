@@ -81,7 +81,7 @@ void List<T>::push_back(T data) {
 
 template <typename T>
 void List<T>::pop_front() {
-    Node tmp = head;
+    Node* tmp = head;
     head = head->pNext;
 
     delete tmp;
@@ -99,6 +99,11 @@ int main() {
     // std::cout << lst[2] <<'\n';
     // std::cout << lst[0] <<'\n';
 
+    for(int i = 0; i < lst.GetSize(); i++)
+        std::cout << "list: " << lst[i] << ' ';
+    std::cout << '\n';
+
+    lst.pop_front();
     for(int i = 0; i < lst.GetSize(); i++)
         std::cout << "list: " << lst[i] << ' ';
 
