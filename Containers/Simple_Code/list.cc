@@ -9,6 +9,9 @@ public:
     ~List();
     void push_back(T data);
     void pop_front();
+
+    void push_front(T data);
+    
     void clear();
     void print();
     int GetSize() {
@@ -40,7 +43,9 @@ List<T>::List() {
 }
 
 template<typename T>
-List<T>::~List() {}
+List<T>::~List() {
+    clear();
+}
 
 template<typename T>
 void List<T>::print() {
@@ -56,12 +61,12 @@ T &List<T>::operator[](const int index) {
 
     while(current != nullptr) {
         if (count == index)
-            return current->data;
-
+            break;
+            // return current->data;
         current = current->pNext;
         count++;
     }
-
+    return current->data;
 }
 
 template<typename T>
@@ -87,6 +92,13 @@ void List<T>::pop_front() {
 
     delete tmp;
     Size--;
+}
+
+template <typename T>
+void List<T>::push_front(T data) {
+    head = new Node(data, head); 
+    // Node::pNext = head->pNext;
+    Size++;
 }
 
 template <typename T>
@@ -118,8 +130,12 @@ int main() {
     std::cout << '\n';
 
     lst.clear();
+    std::cout << "list: " << lst.GetSize();
+    std::cout << '\n';
 
-    
+    lst.push_front(90);
+    std::cout << "list: " << lst.GetSize();
+    std::cout << '\n';
 
     return 0;
 }
