@@ -9,6 +9,7 @@ public:
     ~List();
     void push_back(T data);
     void pop_front();
+    void pop_back();
 
     void push_front(T data);
 
@@ -141,6 +142,11 @@ void List<T>::pop_front() {
 }
 
 template <typename T>
+void List<T>::pop_back() {
+    removeAT(Size - 1);
+}
+
+template <typename T>
 void List<T>::clear() {
     // while(head != nullptr)
     while(Size) 
@@ -185,6 +191,11 @@ int main() {
     std::cout << '\n';
 
     lst.removeAT(0);
+    for(int i = 0; i < lst.GetSize(); i++)
+        std::cout << "list: " << lst[i] << ' ';
+    std::cout << '\n';
+
+    lst.pop_back();
     for(int i = 0; i < lst.GetSize(); i++)
         std::cout << "list: " << lst[i] << ' ';
     std::cout << '\n';
