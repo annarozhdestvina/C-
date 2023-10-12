@@ -13,6 +13,7 @@ public:
     void push_front(T data);
 
     void insert(T value, int index);
+    void removeAT(int index);
     
     void clear();
     void print();
@@ -89,7 +90,7 @@ void List<T>::push_back(T data) {
 
 template <typename T>
 void List<T>::insert(T value, int index) {
-    if(!index)
+    if(!index) 
         push_front(value);    
     else {    
         Node *previous = this->head; 
@@ -101,6 +102,27 @@ void List<T>::insert(T value, int index) {
     }
     Size++;
 
+}
+
+template <typename T>
+void List<T>::removeAT(int index) {
+    if(index > Size || index < 0)
+        assert(index > Size && "invalid index!!");
+
+    if(index == 0)
+        pop_front();
+    else {
+        Node *previous = this->head;
+        for(int i = 0; i < index - 1; i++) 
+            previous = previous->pNext;
+        Node *current = this->head;
+        for(int i = 0; i < index; i++) 
+            current = current->pNext;
+        previous->pNext = current->pNext; 
+    
+        Size--;
+        delete current;
+    }
 }
 
 template <typename T>
@@ -161,6 +183,12 @@ int main() {
     for(int i = 0; i < lst.GetSize(); i++)
         std::cout << "list: " << lst[i] << ' ';
     std::cout << '\n';
+
+    lst.removeAT(0);
+    for(int i = 0; i < lst.GetSize(); i++)
+        std::cout << "list: " << lst[i] << ' ';
+    std::cout << '\n';
+
 
     return 0;
 }
