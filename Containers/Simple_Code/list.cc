@@ -115,11 +115,11 @@ void List<T>::removeAT(int index) {
         Node *previous = this->head;
         for(int i = 0; i < index - 1; i++) 
             previous = previous->pNext;
-        Node *current = this->head;
-        for(int i = 0; i < index; i++) 
-            current = current->pNext;
+        Node *current = previous->pNext;
+        // for(int i = 0; i < index; i++) 
+            // current = current->pNext;
         previous->pNext = current->pNext; 
-    
+
         Size--;
         delete current;
     }
