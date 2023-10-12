@@ -11,6 +11,8 @@ public:
     void pop_front();
 
     void push_front(T data);
+
+    void insert(T value, int index);
     
     void clear();
     void print();
@@ -86,19 +88,34 @@ void List<T>::push_back(T data) {
 }
 
 template <typename T>
+void List<T>::insert(T value, int index) {
+    if(!index)
+        push_front(value);    
+    else {    
+        Node *previous = this->head; 
+        for(int i = 0; i < index - 1; i++) 
+            previous = previous->pNext;
+        
+        Node *newnode = new Node(value, previous->pNext);
+        previous->pNext = newnode;
+    }
+    Size++;
+
+}
+
+template <typename T>
+void List<T>::push_front(T data) {
+    head = new Node(data, head); 
+    Size++;
+}
+
+template <typename T>
 void List<T>::pop_front() {
     Node* tmp = head;
     head = head->pNext;
 
     delete tmp;
     Size--;
-}
-
-template <typename T>
-void List<T>::push_front(T data) {
-    head = new Node(data, head); 
-    // Node::pNext = head->pNext;
-    Size++;
 }
 
 template <typename T>
@@ -134,7 +151,15 @@ int main() {
     std::cout << '\n';
 
     lst.push_front(90);
-    std::cout << "list: " << lst.GetSize();
+    lst.push_front(1);
+    lst.push_front(9);
+    for(int i = 0; i < lst.GetSize(); i++)
+        std::cout << "list: " << lst[i] << ' ';
+    std::cout << '\n';
+
+    lst.insert(6, 3);
+    for(int i = 0; i < lst.GetSize(); i++)
+        std::cout << "list: " << lst[i] << ' ';
     std::cout << '\n';
 
     return 0;
