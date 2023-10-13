@@ -53,7 +53,12 @@ List<T>::~List() {
 
 template<typename T>
 void List<T>::print() {
-    std::cout << "list\n";
+    Node *current = this->head;
+    while(current) {
+        std::cout << "list: " << current->data << ' ';
+        current = current->pNext;
+    }
+    std::cout << '\n';
 }
 
 template <typename T>
@@ -186,19 +191,13 @@ int main() {
     std::cout << '\n';
 
     lst.insert(6, 3);
-    for(int i = 0; i < lst.GetSize(); i++)
-        std::cout << "list: " << lst[i] << ' ';
-    std::cout << '\n';
+    lst.print();
 
     lst.removeAT(0);
-    for(int i = 0; i < lst.GetSize(); i++)
-        std::cout << "list: " << lst[i] << ' ';
-    std::cout << '\n';
+    lst.print();
 
     lst.pop_back();
-    for(int i = 0; i < lst.GetSize(); i++)
-        std::cout << "list: " << lst[i] << ' ';
-    std::cout << '\n';
+    lst.print();
 
 
     return 0;
