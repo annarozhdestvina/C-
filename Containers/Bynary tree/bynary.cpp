@@ -41,7 +41,7 @@ void print(Branch* branch) {
 int pramoi_obxod_SUM(Branch*& branch) {
     if(!branch)
         return 0;
-    int sum = 0;
+    static int sum = 0;
     sum += branch->_data;
     pramoi_obxod_SUM(branch->left);
     pramoi_obxod_SUM(branch->right);
@@ -56,8 +56,9 @@ int main() {
     Add(3, b1);
 
     print(b1);
+    std::cout << "\n SUM = ";
 
-    pramoi_obxod_SUM(b1);
+    std::cout << pramoi_obxod_SUM(b1);
 
     return 0;
 }
